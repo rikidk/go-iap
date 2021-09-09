@@ -154,7 +154,7 @@ func (c *Client) IsAcknowledgedProduct(packageName, productID, token string) (bo
 func (c *Client) AcknowledgeSubscription(packageName, subscriptionID, token string) error {
 	service, err := androidpublisher.New(c.httpClient)
 	if err != nil {
-		return false, err
+		return err
 	}
 
 	ps := androidpublisher.NewPurchasesSubscriptionsService(service)
@@ -165,7 +165,7 @@ func (c *Client) AcknowledgeSubscription(packageName, subscriptionID, token stri
 func (c *Client) AcknowledgeProduct(packageName, productID, token string) error {
 	service, err := androidpublisher.New(c.httpClient)
 	if err != nil {
-		return false, err
+		return err
 	}
 
 	ps := androidpublisher.NewPurchasesProductsService(service)
