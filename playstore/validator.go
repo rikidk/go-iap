@@ -117,3 +117,57 @@ func (c *Client) CancelSubscription(packageName, subscriptionID, token string) e
 	ps := androidpublisher.NewPurchasesSubscriptionsService(service)
 	return ps.Cancel(packageName, subscriptionID, token).Do()
 }
+
+// IsAcknowledgedSubscription checks if the subscription is acknowledged or not.
+func (c *Client) IsAcknowledgedSubscription(packageName, subscriptionID, token string) (bool, error) {
+	service, err := androidpublisher.New(c.httpClient)
+	if err != nil {
+		return false, err
+	}
+
+	ps := androidpublisher.NewPurchasesSubscriptionsService(service)
+	result, err := ps.Get(packageName, subscriptionID, token).Do()
+	if err != nil {
+		return false, err
+	}
+	isAck := result.AcknowledgementState == 1
+	return isAck, nil
+}
+
+// IsAcknowledgedProduct checks if the product is acknowledged or not.
+func (c *Client) IsAcknowledgedProduct(packageName, productID, token string) (bool, error) {
+	service, err := androidpublisher.New(c.httpClient)
+	if err != nil {
+		return false, err
+	}
+
+	ps := androidpublisher.NewPurchasesProductsService(service)
+	result, err := ps.Get(packageName, productID, token).Do()
+	if err != nil {
+		return false, err
+	}
+	isAck := result.AcknowledgementState == 1
+	return isAck, nil
+}
+
+// AcknowledgeSubscription acknowledges the subscription.
+func (c *Client) AcknowledgeSubscription(packageName, subscriptionID, token string) error {
+	service, err := androidpublisher.New(c.httpClient)
+	if err != nil {
+		return err
+	}
+
+	ps := androidpublisher.NewPurchasesSubscriptionsService(service)
+	return ps.Acknowledge(packageName, subscriptionID, token, nil).Do()
+}
+
+// AcknowledgeProduct acknowledges the product.
+func (c *Client) AcknowledgeProduct(packageName, productID, token string) error {
+	service, err := androidpublisher.New(c.httpClient)
+	if err != nil {
+		return err
+	}
+
+	ps := androidpublisher.NewPurchasesProductsService(service)
+	return ps.Acknowledge(packageName, productID, token, nil).Do()
+}
