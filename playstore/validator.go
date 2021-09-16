@@ -171,3 +171,25 @@ func (c *Client) AcknowledgeProduct(packageName, productID, token string) error 
 	ps := androidpublisher.NewPurchasesProductsService(service)
 	return ps.Acknowledge(packageName, productID, token, nil).Do()
 }
+
+// GetProduct gets the product item status.
+func (c *Client) GetProduct(packageName, productID, token string) (*androidpublisher.ProductPurchase, error) {
+	service, err := androidpublisher.New(c.httpClient)
+	if err != nil {
+		return nil, err
+	}
+
+	ps := androidpublisher.NewPurchasesProductsService(service)
+	return ps.Get(packageName, productID, token).Do()
+}
+
+// GetSubscription gets the subscription item status.
+func (c *Client) GetSubscription(packageName, productID, token string) (*androidpublisher.SubscriptionPurchase, error) {
+	service, err := androidpublisher.New(c.httpClient)
+	if err != nil {
+		return nil, err
+	}
+
+	ps := androidpublisher.NewPurchasesSubscriptionsService(service)
+	return ps.Get(packageName, productID, token).Do()
+}
