@@ -28,6 +28,8 @@ func ToReceiptInApp(ap InApp) *ReceiptInApp {
 		ExpiresDate:               ToTime(ap.ExpiresDate.ExpiresDateMS),
 		CancellationDate:          ToTime(ap.CancellationDate.CancellationDateMS),
 		PromotionalOfferID:        ap.PromotionalOfferID,
+		IsInIntroOfferPeriod:      ap.IsInIntroOfferPeriod,
+		OfferCodeRefName:          ap.OfferCodeRefName,
 	}
 }
 

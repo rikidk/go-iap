@@ -70,6 +70,7 @@ type InApp struct {
 	VersionExternalIdentifier string `json:"version_external_identifier"`
 	WebOrderLineItemID        string `json:"web_order_line_item_id"`
 	PromotionalOfferID        string `json:"promotional_offer_id"`
+	OfferCodeRefName          string `json:"offer_code_ref_name"`
 	PurchaseDate
 	OriginalPurchaseDate
 	ExpiresDate

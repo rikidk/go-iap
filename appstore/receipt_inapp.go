@@ -19,6 +19,8 @@ type ReceiptInApp struct {
 	ExpiresDate               time.Time
 	CancellationDate          time.Time
 	PromotionalOfferID        string
+	IsInIntroOfferPeriod      string
+	OfferCodeRefName          string
 }
 
 type ReceiptInApps []*ReceiptInApp
