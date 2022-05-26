@@ -27,6 +27,7 @@ func ToReceiptInApp(ap InApp) *ReceiptInApp {
 		OriginalPurchaseDate:      ToTime(ap.OriginalPurchaseDate.OriginalPurchaseDateMS),
 		ExpiresDate:               ToTime(ap.ExpiresDate.ExpiresDateMS),
 		CancellationDate:          ToTime(ap.CancellationDate.CancellationDateMS),
+		PromotionalOfferID:        ap.PromotionalOfferID,
 	}
 }
 

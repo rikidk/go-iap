@@ -18,6 +18,7 @@ type ReceiptInApp struct {
 	OriginalPurchaseDate      time.Time
 	ExpiresDate               time.Time
 	CancellationDate          time.Time
+	PromotionalOfferID        string
 }
 
 type ReceiptInApps []*ReceiptInApp

@@ -75,6 +75,7 @@ type ReceiptIOS6 struct {
 	OriginalPurchaseDate
 	IsTrialPeriod        string `json:"is_trial_period"`
 	IsInIntroOfferPeriod string `json:"is_in_intro_offer_period"`
+	PromotionalOfferID   string `json:"promotional_offer_id"`
 }
 
 func (rc *ReceiptIOS6) ToIOS7() ReceiptIOS7 {
@@ -110,5 +111,6 @@ func (rc *ReceiptIOS6) ToInApp() InApp {
 		},
 		IsTrialPeriod:        rc.IsTrialPeriod,
 		IsInIntroOfferPeriod: rc.IsInIntroOfferPeriod,
+		PromotionalOfferID:   rc.PromotionalOfferID,
 	}
 }
