@@ -113,5 +113,6 @@ func (rc *ReceiptIOS6) ToInApp() InApp {
 		IsTrialPeriod:        rc.IsTrialPeriod,
 		IsInIntroOfferPeriod: rc.IsInIntroOfferPeriod,
 		PromotionalOfferID:   rc.PromotionalOfferID,
+		OfferCodeRefName:     rc.OfferCodeRefName,
 	}
 }
