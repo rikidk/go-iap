@@ -11,6 +11,7 @@ type ReceiptInApp struct {
 	TransactionID             int64
 	OriginalTransactionID     int64
 	IsTrialPeriod             bool
+	IsInIntroOfferPeriod      bool
 	AppItemID                 int64
 	VersionExternalIdentifier int64
 	WebOrderLineItemID        int64
@@ -19,7 +20,6 @@ type ReceiptInApp struct {
 	ExpiresDate               time.Time
 	CancellationDate          time.Time
 	PromotionalOfferID        string
-	IsInIntroOfferPeriod      string
 	OfferCodeRefName          string
 }
 

@@ -20,6 +20,7 @@ func ToReceiptInApp(ap InApp) *ReceiptInApp {
 		TransactionID:             ToInt64(ap.TransactionID),
 		OriginalTransactionID:     ToInt64(ap.OriginalTransactionID),
 		IsTrialPeriod:             ToBool(ap.IsTrialPeriod),
+		IsInIntroOfferPeriod:      ToBool(ap.IsInIntroOfferPeriod),
 		AppItemID:                 ToInt64(ap.AppItemID),
 		VersionExternalIdentifier: ToInt64(ap.VersionExternalIdentifier),
 		WebOrderLineItemID:        ToInt64(ap.WebOrderLineItemID),
@@ -28,7 +29,6 @@ func ToReceiptInApp(ap InApp) *ReceiptInApp {
 		ExpiresDate:               ToTime(ap.ExpiresDate.ExpiresDateMS),
 		CancellationDate:          ToTime(ap.CancellationDate.CancellationDateMS),
 		PromotionalOfferID:        ap.PromotionalOfferID,
-		IsInIntroOfferPeriod:      ap.IsInIntroOfferPeriod,
 		OfferCodeRefName:          ap.OfferCodeRefName,
 	}
 }
